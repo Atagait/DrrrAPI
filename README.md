@@ -52,7 +52,7 @@ I will also be separating certain endpoints into two sections, **Session** and *
 }
 ```
 
-# Lounge API Endpoints
+# Lounge API Endpoint
 ## GET /lounge/?api=json
 ```
 {
@@ -65,6 +65,36 @@ I will also be separating certain endpoints into two sections, **Session** and *
   profile:(current user object)
 }
 ```
+
+# Create Room Endpoint
+## GET /create_room/?api=json
+```
+{
+  max_length:10,
+  user_min:2,
+  user_max:20,
+  max_rooms:500,
+  language:en-US,
+  language:
+  [
+    (list of supported languages)
+  ]
+}
+```
+
+## POST /create_room/
+```
+{
+  name:(room name),
+  description:(room description),
+  limit:(max number of users in the room),
+  language:(room language section),
+  adult:(boolean - is it an adult room),
+  music:(boolean - can music be played),
+  submit:"Create Room"
+}
+```
+
 #OBJECTS
 ## User Object
 ```
