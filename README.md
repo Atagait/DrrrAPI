@@ -95,7 +95,15 @@ I will also be separating certain endpoints into two sections, **Session** and *
 }
 ```
 
-#OBJECTS
+## GET /room/?api=json
+```
+{
+  profile:(current user object),
+  room:(current room object)
+}
+```
+
+# OBJECTS
 ## User Object
 ```
 {
@@ -131,5 +139,66 @@ I will also be separating certain endpoints into two sections, **Session** and *
   [
     (user objects)
   ]
+  //The following objects are only displayed by the /room endpoints
+  user:(currnt user object),
+  profile:(current user object),
+  is_game_host:(boolean),
+  //Now playing - used for audio share
+  np:{
+    name:(string),
+    url:(string),
+    playURL:(string, not sure how this differs from URL),
+    shareURL:(string, not sure how this differs from URL),
+    source:"direct"(string, haven't seen any others),
+    direct:(boolean) (haven't seen it false),
+    info:{
+      album:(string, haven't seen it used),
+      pic:(string, haven't seen it used),
+      file_size:"0"(string, haven't seen it used),
+      file_br:"0"(string, haven't seen it used),
+    }
+    time:(timestamp of when audio was posted)
+  },
+  talks:[
+    (array of message objects)
+  ]
+  
 }
 ```
+
+## Message Objects
+They are sorted by message type
+### Message
+```
+{
+  id:(string, message unique ID),
+  time:(number, message timestamp),
+  type:"message",
+  from:(author user object),
+  message:(string, message content)
+}
+```
+
+### Me
+```
+{
+  id:(string, message unique ID),
+  time:(number, message timestamp),
+  type:"me",
+  from:(author user object),
+  message:"{1} {2}",
+  content:(string, message content, replaces {2})
+}
+```
+
+### Leave
+```
+{
+  id:(string, message unique ID),
+  time:(number, message timestamp),
+  type:"leave",
+  user:(user who left),
+  message:"{1} logged out."
+}
+```
+
