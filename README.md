@@ -185,7 +185,7 @@ They are sorted by message type
   id:(string, message unique ID),
   time:(number, message timestamp),
   type:"me",
-  from:(author user object),
+  from:(author user object, {1}),
   message:"{1} {2}",
   content:(string, message content, replaces {2})
 }
@@ -197,8 +197,30 @@ They are sorted by message type
   id:(string, message unique ID),
   time:(number, message timestamp),
   type:"leave",
-  user:(user who left),
+  user:(user who left, {1}),
   message:"{1} logged out."
 }
 ```
 
+### Roll
+```
+{
+  id:(string, message unique ID),
+  time:(number, message timestamp),
+  type:"roll",
+  from:(user who typed /roll, {1}),
+  to:(user who was rolled {2}),
+  message:"{1} has rolled @{2}"
+}
+```
+
+### Join
+```
+{
+  id:(string, message unique ID),
+  time:(number, message timestamp),
+  type:"join",
+  user:(user who joined, {1}),
+  message:"{1} logged in.."
+}
+```
