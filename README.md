@@ -103,6 +103,17 @@ I will also be separating certain endpoints into two sections, **Session** and *
 }
 ```
 
+## GET /room/?api=json&update=TIMESTAMP
+```
+{
+  profile:(current user object),
+  room:(current room object)
+}
+```
+update is a filter which will only return events that have taken place after the provided TIMESTAMP
+It should be noted that if the timestamp is in the future, the request will attempt to wait until an event happens at that time.
+
+
 # OBJECTS
 ## User Object
 ```
