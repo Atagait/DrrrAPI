@@ -123,10 +123,10 @@ It should be noted that if the timestamp is in the future, the request will atte
   icon:(user icon),
   device:(desktop/tablet/mobile/bot),
   loginedAt:(login event timestamp),
-  player:(boolean - i don't know what this is for),
-  role:(string - i don't know what this is for),
-  visible:(boolean - i don't know what this is for),
-  alive:(boolean - i don't know what this is for)
+  player:(boolean - flags if you are playing Werewolf in a game room),
+  role:(string - what your role/job is in Werewolf),
+  visible:(boolean - unsure as of now, see issue #1),
+  alive:(boolean - flags if you are alive or dead in Werewolf)
 }
 ```
 
