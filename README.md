@@ -9,6 +9,11 @@ The Base URI is "https://drrr.com"
 
 I will also be separating certain endpoints into two sections, **Session** and **No Session** since some endpoints have different returns depending on if you have logged in or not. This basically only applies to the index page.
 
+**Important note!**
+When creating string representation of boolean values, some languages will capitalize them (they return "True" not "true").
+Some POST endpoints on Drrr.com that accept boolean values (I.E create_room) **REQUIRE** the boolean values to be lowercase.
+If something seems to not be working, check your post requests to see if something is capitalized where it shouldn't be.
+
 # Index API Endpoints
 ## GET /?api=json
 **No Session**
