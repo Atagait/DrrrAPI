@@ -57,6 +57,14 @@ If something seems to not be working, check your post requests to see if somethi
 }
 ```
 
+# Profile API Endpoint
+## GET /profile/?api=json
+```
+{
+  profile:(current user object)
+}
+```
+
 # Lounge API Endpoint
 ## GET /lounge/?api=json
 ```
